@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Simple Landing — Inline CSS Example</title>
+
+    <!-- Inline CSS (internal) -->
+    <style>
+         :root {
+            --accent: #2563eb;
+            --muted: #6b7280;
+            --card-bg: #f8fafc;
+            --radius: 14px;
+            --max-w: 1100px;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+        /* Page layout */
+        
+        body {
+            margin: 0;
+            background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+            color: #0f172a;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.45;
+        }
+        
+        .container {
+            max-width: var(--max-w);
+            margin: 32px auto;
+            padding: 0 20px;
+        }
+        /* Header */
+        
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: inline-grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.18);
+            font-size: 18px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .cta {
+            background: var(--accent);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.14);
+        }
+        /* Hero */
+        
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 28px;
+            align-items: center;
+            margin-bottom: 36px;
+        }
+        
+        .hero h1 {
+            margin: 0 0 12px 0;
+            font-size: 34px;
+            line-height: 1.05;
+        }
+        
+        .hero p {
+            color: var(--muted);
+            margin: 0 0 18px 0;
+            font-size: 16px;
+        }
+        
+        .hero .actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        /* Cards */
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+            min-height: 120px;
+        }
+        
+        .card h3 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+        }
+        
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+        /* Contact form */
+        
+        .form {
+            background: linear-gradient(180deg, #ffffff, #fbfdff);
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(2, 6, 23, 0.06);
+        }
+        
+        .form label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 6px;
+            color: #111827;
+        }
+        
+        .form input,
+        .form textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid #e6edf3;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .form button {
+            background: var(--accent);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 0;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        
+        footer {
+            margin-top: 36px;
+            color: var(--muted);
+            font-size: 13px;
+            text-align: center;
+            padding: 20px 0;
+        }
+        /* Responsive */
+        
+        @media (max-width: 880px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            nav {
+                display: none;
+            }
+            /* keep simple — hide nav on small screens */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="#" class="brand" style="cursor:pointer;">
+                <span class="logo">SL</span>
+                <div>
+                    <div style="font-weight:800; font-size:15px;">SimpleLanding</div>
+                    <div style="font-size:12px; color:var(--muted); margin-top:2px;">One-file example</div>
+                </div>
+            </a>
+
+            <nav aria-label="Main navigation">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+                <a class="cta" href="#contact">Get Started</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero" aria-labelledby="hero-heading">
+                <div>
+                    <h1 id="hero-heading">A simple, modern HTML page with inline CSS</h1>
+                    <p>Ready-to-use single-file template — great for demos, prototypes, or learning. No external libraries. Customize colors, fonts, and layout quickly.</p>
+
+                    <div class="actions">
+                        <a class="cta" href="#contact">Start a Trial</a>
+                        <a href="#features" style="padding:10px 12px; border-radius:10px; text-decoration:none; border:1px solid #e6edf3; font-weight:700;">See features</a>
+                    </div>
+                </div>
+
+                <aside>
+                    <div class="form" style="display:flex;flex-direction:column; gap:8px;">
+                        <label for="email">Join the waitlist</label>
+                        <input id="email" type="email" placeholder="you@domain.com" />
+                        <button onclick="alert('Thanks! (this is a demo)')">Notify me</button>
+                    </div>
+                </aside>
+            </section>
+
+            <section id="features">
+                <div class="grid">
+                    <article class="card">
+                        <h3>Responsive layout</h3>
+                        <p>Auto-adjusts to different screens using CSS grid — no frameworks required.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Accessible markup</h3>
+                        <p>Semantic tags and labels so screen readers and crawlers can understand the page.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Single-file</h3>
+                        <p>Everything in one HTML file — easy to copy, share, and demo.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Easy to customize</h3>
+                        <p>Change colors and text in the top :root area — quick theming.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="contact" style="display:grid; grid-template-columns: 1fr 320px; gap:18px; align-items:start;">
+                <div>
+                    <h2 style="margin-top:0;">Contact & Quick signup</h2>
+                    <p style="color:var(--muted);">Drop your info and we'll reach out — this is a static demo (no backend).</p>
+
+                    <form class="form" onsubmit="event.preventDefault(); alert('Form submit (demo)');">
+                        <label for="name">Full name</label>
+                        <input id="name" type="text" placeholder="Your name" required>
+
+                        <label for="email2">Email</label>
+                        <input id="email2" type="email" placeholder="you@domain.com" required>
+
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="4" placeholder="How can we help?"></textarea>
+
+                        <button type="submit">Send message</button>
+                    </form>
+                </div>
+
+                <aside>
+                    <div class="card" style="padding:16px;">
+                        <h3 style="margin-bottom:8px;">Quick info</h3>
+                        <p style="margin-bottom:10px; color:var(--muted);">Hosted locally — to connect to a backend, wire the form action or use fetch()/XHR.</p>
+                        <p style="font-size:13px; color:var(--muted); margin:0;"><strong>Tip:</strong> To change the accent color edit <code>:root --accent</code> near the top of this file.</p>
+                    </div>
+                </aside>
+            </section>
+        </main>
+
+        <footer>
+            <div>© <span id="year"></span> SimpleLanding — Built with a single HTML file</div>
+        </footer>
+    </div>
+
+    <script>
+        // small script to show current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
