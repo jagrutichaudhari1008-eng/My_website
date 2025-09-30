@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sample Index — Inline CSS</title>
+
+    <!-- Inline / internal CSS -->
+    <style>
+         :root {
+            --bg: #0f1724;
+            --card: #0b1220;
+            --muted: #9aa6bf;
+            --accent: #6ee7b7;
+            --glass: rgba(255, 255, 255, 0.04);
+            --radius: 12px;
+            --gap: 1rem;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+        /* Reset-ish */
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        html,
+        body {
+            height: 100%
+        }
+        
+        body {
+            margin: 0;
+            background: linear-gradient(180deg, #071029 0%, #08121c 60%);
+            color: #e6eef8;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.45;
+            padding: 2rem;
+        }
+        /* Page container */
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        /* Header / nav */
+        
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--gap);
+            margin-bottom: 1.25rem;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .logo {
+            width: 46px;
+            height: 46px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), #60a5fa);
+            display: inline-grid;
+            place-items: center;
+            color: #042024;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        nav ul {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            align-items: center;
+        }
+        
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            padding: 0.45rem 0.6rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+            background: var(--glass);
+        }
+        
+        .cta {
+            background: linear-gradient(90deg, #10b981, #06b6d4);
+            color: #022;
+            padding: 0.5rem 0.9rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.08);
+        }
+        /* Mobile menu toggle */
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--muted);
+            padding: 0.45rem;
+            border-radius: 8px;
+        }
+        /* Hero */
+        
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 1.25rem;
+            align-items: start;
+            margin-bottom: 1.25rem;
+        }
+        
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            padding: 1.25rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+        }
+        
+        h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.9rem;
+            letter-spacing: -0.02em;
+        }
+        
+        p.lead {
+            margin: 0 0 1rem 0;
+            color: var(--muted);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .feature {
+            padding: 0.6rem;
+            border-radius: 10px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+        /* Right column */
+        
+        .signup {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        
+        .signup input,
+        .signup button {
+            width: 100%;
+            padding: 0.65rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: transparent;
+            color: inherit;
+            font-weight: 600;
+        }
+        
+        .signup button {
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(90deg, #6ee7b7, #60a5fa);
+            color: #022;
+        }
+        /* Grid of cards */
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .grid .card {
+            padding: 1rem;
+        }
+        
+        .card h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.05rem;
+        }
+        
+        .muted {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+        
+        footer {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            align-items: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        /* Responsive */
+        
+        @media (max-width:900px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            nav ul {
+                display: none;
+            }
+            .menu-toggle {
+                display: inline-block;
+            }
+        }
+        
+        @media (max-width:520px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" role="main">
+        <header>
+            <a href="#" class="brand" aria-label="Brand home">
+                <span class="logo" aria-hidden="true">JC</span>
+                <div>
+                    <div style="font-weight:700">jagruti Demo</div>
+                    <div style="font-size:0.8rem;color:var(--muted)">Simple index with inline CSS</div>
+                </div>
+            </a>
+
+            <div style="display:flex;align-items:center;gap:0.6rem;">
+                <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" id="menuToggle">☰</button>
+
+                <nav id="site-nav" aria-label="Main navigation">
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a class="cta" href="#signup">Get started</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="card" aria-labelledby="heroTitle">
+                <h1 id="heroTitle">A sleek HTML index with inline CSS</h1>
+                <p class="lead">This single-file template demonstrates a responsive layout, accessible markup, and modern small UI patterns — all with internal CSS (no external files).</p>
+
+                <div class="features" id="features" aria-hidden="false">
+                    <div class="feature"><strong>Responsive</strong>
+                        <div class="muted">Grid and flexible nav</div>
+                    </div>
+                    <div class="feature"><strong>Accessible</strong>
+                        <div class="muted">Aria labels & semantic HTML</div>
+                    </div>
+                    <div class="feature"><strong>Self-contained</strong>
+                        <div class="muted">One file — easy to share</div>
+                    </div>
+                </div>
+
+                <div style="margin-top:1rem;">
+                    <a href="#products" class="cta">See examples</a>
+                </div>
+            </div>
+
+            <aside class="card signup" id="signup" aria-labelledby="signupTitle">
+                <h3 id="signupTitle" style="margin:0">Join the waiting list</h3>
+                <p class="muted" style="margin:0 0 0.6rem 0">No spam — just occasional updates.</p>
+                <label for="email" class="muted" style="font-size:0.85rem;">Email</label>
+                <input id="email" type="email" placeholder="you@example.com" required />
+                <button type="button" aria-label="Sign up">Subscribe</button>
+            </aside>
+        </section>
+
+        <section id="products" aria-labelledby="productsTitle">
+            <h2 id="productsTitle" style="margin-top:0.2rem">Example cards</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Compact card</h3>
+                    <p class="muted">Perfect for short product descriptions or blog teaser content.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Feature tile</h3>
+                    <p class="muted">Use this for highlighting a single product benefit or testimonial.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Media + text</h3>
+                    <p class="muted">Layouts with images or icons go well here; keep copy concise.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Pricing</h3>
+                    <p class="muted">Small price cards fit nicely into this grid for shop pages.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Blog post</h3>
+                    <p class="muted">Title, excerpt, and a small CTA — done.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Contact</h3>
+                    <p class="muted">Place a mini contact form, map, or social links here.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div>© <span id="year"></span> jagruti Demo</div>
+            <div class="muted">Built with inline CSS • Responsive • Minimal</div>
+        </footer>
+    </div>
+
+    <!-- Tiny JS for the mobile menu + year injection (keeps file single-file) -->
+    <script>
+        // Inject current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Simple menu toggle for small screens
+        const toggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('site-nav');
+
+        toggle && toggle.addEventListener('click', () => {
+            const expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            // simple show/hide by toggling inline style (keeps CSS internal)
+            const ul = nav.querySelector('ul');
+            if (!ul) return;
+            if (ul.style.display === 'flex' || window.getComputedStyle(ul).display === 'flex') {
+                ul.style.display = 'none';
+            } else {
+                ul.style.display = 'flex';
+                ul.style.flexDirection = 'column';
+                ul.style.gap = '0.5rem';
+            }
+        });
+
+        // ensure nav visible on resize to large screens
+        window.addEventListener('resize', () => {
+            const ul = nav.querySelector('ul');
+            if (window.innerWidth > 900 && ul) ul.style.display = 'flex';
+            if (window.innerWidth <= 900 && ul) ul.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
